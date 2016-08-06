@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     end
 
     def logged_in_user
+      flash[:danger] = "Please login."
       redirect_to root_url if !logged_in?
     end
 end
