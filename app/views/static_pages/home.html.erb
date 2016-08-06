@@ -1,2 +1,14 @@
-<h1>MEMBERS ONLY app</h1>
-<p>Sign in so you can talk about the people who aren't part of the club.</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+      <h1>MEMBERS ONLY App</h1>
+      <% if !logged_in? %>
+        <p>Sign in so you can talk about the people who aren't part of the club.</p>
+        <%= link_to "Login", login_path, class: "btn btn-primary" %>
+      <% else %>
+        <p>Welcome, <%= current_user.username %>! Glad to have you here.</p>
+        <%= link_to "Post Something", new_post_path, class: "btn btn-primary" %>
+        <%= link_to "View All Posts", posts_path, class: "btn btn-primary" %>
+        <%= link_to "Logout", logout_path, class: "btn btn-danger", method: :delete %>
+    <% end %>
+  </div>
+</div>
